@@ -1,0 +1,12 @@
+/* Alinea bien celdas con rowspan/colspan */
+table th, table td {
+  vertical-align: middle;
+}
+
+/* Scroll solo para la tabla */
+.tabla-scroll {
+  margin-top: 30px;
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 400px;
+}

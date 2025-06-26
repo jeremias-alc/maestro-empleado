@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Maestro de Empleados</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- NAVBAR LATERAL -->
+  <aside class="sidebar">
+    <div class="logo">
+      <img src="assets/XpertCodelogo.png" alt="Logo" />
+      <h2>Gestión</h2>
+    </div>
+    <nav class="nav-links">
+      <a href="empleados.html" class="nav-link">Empleados</a>
+      <a href="vacaciones.html" class="nav-link">Vacaciones</a>
+      <a href="historial.html" class="nav-link">Historial</a>
+    </nav>
+
+  </aside>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="main-content">
+    <header class="page-header">
+      <h1>Empleados</h1>
+    </header>
+
+    <section class="contenido">
+          <div class="acciones-superiores">
+            <button class="btn-nuevo">+ Nuevo Usuario</button>
+            <div class="acciones-individuales">
+              <button class="accion">Ver</button>
+              <div class="divider"></div>
+              <button class="accion">Editar</button>
+              <div class="divider"></div>
+              <button class="accion eliminar">Eliminar</button>
+            </div>
+          </div>
+
+          <!-- Contenedor de la tabla -->
+          <div class="tabla-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Código</th>
+                  <th>Nombre</th>
+                  <th>Posición</th>
+                  <th>Fecha Ingreso</th>
+                  <th>Cédula</th>
+                  <th>Fecha Nacimiento</th>
+                  <th>Último Aumento</th>
+                  <th>Salario</th>
+                  <th>Expenses</th>
+                  <th>Total</th>
+                  <th>Comentarios</th>
+                  <th>Email</th>
+                </tr>
+              </thead>
+              <tbody id="tabla-empleados-body">
+                <!-- Empleados serán insertados aquí por JS -->
+              </tbody>
+            </table>
+          </div>
+
+    </section>
+  </main>
+  <script src="js/main.js"></script>
+
+  <!-- MODAL NUEVO EMPLEADO -->
+  <div class="modal" id="modal-empleado">
+    <div class="modal-contenido">
+      <h2>Nuevo Empleado</h2>
+      <form id="form-empleado">
+        <input type="text" name="codigo" placeholder="Código" required />
+        <input type="text" name="nombre" placeholder="Nombre" required />
+        <input type="text" name="posicion" placeholder="Posición" />
+        <input type="date" name="fecha_ingreso" placeholder="Fecha Ingreso" />
+        <input type="text" name="cedula" placeholder="Cédula" />
+        <input type="date" name="fecha_cumpleanos" placeholder="Fecha Nacimiento" />
+        <input type="date" name="fecha_ultimo_aumento" placeholder="Último Aumento" />
+        <input type="number" step="0.01" name="salario" placeholder="Salario" />
+        <input type="number" step="0.01" name="expenses" placeholder="Expenses" />
+        <input type="number" step="0.01" name="total" placeholder="Total" />
+        <input type="text" name="comentarios" placeholder="Comentarios" />
+        <input type="email" name="email" placeholder="Email" />
+        <div class="acciones-formulario">
+          <button type="submit">Guardar</button>
+          <button type="button" id="cerrar-modal">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+</body>
+</html>

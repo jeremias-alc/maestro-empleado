@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Maestro de Empleados</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/vacaciones.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- NAVBAR LATERAL -->
+  <aside class="sidebar">
+    <div class="logo">
+      <img src="assets/XpertCodelogo.png" alt="Logo" />
+      <h2>Gestión</h2>
+    </div>
+    <nav class="nav-links">
+      <a href="empleados.html">Empleados</a>
+      <a href="vacaciones.html">Vacaciones</a>
+      <a href="historial.html">Historial</a>
+    </nav>
+  </aside>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="main-content">
+    <header class="page-header">
+      <h1>Vacaciones</h1>
+    </header>
+
+    <section class="contenido">
+        <!-- Botones de acción superiores -->
+        <div class="acciones-superiores">
+          <button class="btn-nuevo">+ Nuevo Registro</button>
+          <div class="acciones-individuales">
+            <button class="accion">Ver</button>
+            <div class="divider"></div>
+            <button class="accion">Editar</button>
+            <div class="divider"></div>
+            <button class="accion eliminar">Eliminar</button>
+          </div>
+        </div>
+
+        <!-- Contenedor con scroll para la tabla -->
+        <div class="tabla-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th rowspan="2">CNT</th>
+                <th rowspan="2">Nombre Empleado</th>
+                <th rowspan="2">Periodo Vacacional</th>
+                <th colspan="2">Rango Fechas Vacaciones</th>
+                <th rowspan="2"># de días disfrutados</th>
+                <th rowspan="2">Tomada / Pagada</th>
+                <th rowspan="2">Comentarios</th>
+              </tr>
+              <tr>
+                <th>Inicio</th>
+                <th>Fin</th>
+              </tr>
+            </thead>
+            <tbody id="tabla-vacaciones-body">
+              <!-- Registros serán insertados aquí por JS -->
+            </tbody>
+          </table>
+        </div>
+
+    </section>
+  </main>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
