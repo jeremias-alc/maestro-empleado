@@ -166,7 +166,7 @@ button.delete {
 
 /* Botón "Nuevo Usuario" */
 .btn-nuevo {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border: 1px solid #888888;
   color: #888888;
   padding: 8px 16px;
@@ -179,6 +179,40 @@ button.delete {
 .btn-nuevo:hover {
   background-color: #f0f0f0;
 }
+
+/* Botón Editar */
+.btn-edit {
+  background-color: #F29422; /* Amarillo */
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-bottom: 5px;
+}
+
+.btn-edit:hover {
+  background-color: #d37f1c; /* tono más oscuro al pasar el mouse */
+}
+
+/* Botón Eliminar */
+.btn-delete {
+  background-color: crimson; /* Puedes usar #d9534f si prefieres un rojo más suave */
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-delete:hover {
+  background-color: darkred;
+}
+
 
 /* Contenedor tipo "grupo de botones" */
 .acciones-individuales {
@@ -240,7 +274,12 @@ th, td {
 }
 
 tr:hover {
-  background-color: #f5f5f5;
+  background-color: inherit; /* mantiene el fondo original */
+  cursor: default;           /* o 'pointer' si quieres */
+}
+
+tbody tr:hover {
+  background-color: #eafaf4; /* un tono suave, puedes cambiarlo */
 }
 
 
