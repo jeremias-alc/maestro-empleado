@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
   });
 });
 
-//Eliminar un empleado por ID
+// Eliminar un empleado por ID
 router.delete('/:id', (req, res) => {
   const id = req.params.id;
   db.run('DELETE FROM empleados WHERE id = ?', [id], function (err) {
@@ -50,33 +50,28 @@ router.post('/', (req, res) => {
 
 // Actualizar un empleado existente
 router.put('/:id', (req, res) => {
-  const id = req.params.id;
-  const {
-    codigo, nombre, posicion, fecha_ingreso, cedula,
-    fecha_nacimiento, fecha_ultimo_aumento, salario,
-    expenses, total, comentarios, email
-  } = req.body;
+  const { id } = req.params;
+  const datos = req.body;
 
   const sql = `
     UPDATE empleados SET
       codigo = ?, nombre = ?, posicion = ?, fecha_ingreso = ?, cedula = ?,
-      fecha_nacimiento = ?, fecha_ultimo_aumento = ?, salario = ?,
-      expenses = ?, total = ?, comentarios = ?, email = ?
+      fecha_nacimiento = ?, fecha_ultimo_aumento = ?, salario = ?, expenses = ?,
+      total = ?, comentarios = ?, email = ?
     WHERE id = ?
   `;
 
   db.run(sql, [
-    codigo, nombre, posicion, fecha_ingreso, cedula,
-    fecha_nacimiento, fecha_ultimo_aumento, salario,
-    expenses, total, comentarios, email, id
-  ], function (err) {
-    if (err) return res.status(500).json({ error: err.message });
-    res.json({ success: true });
+    datos.codigo, datos.nombre, datos.posicion, datos.fecha_ingreso, datos.cedula,
+    datos.fecha_nacimiento, datos.fecha_ultimo_aumento, datos.salario, datos.expenses,
+    datos.total, datos.comentarios, datos.email, id
+  ], function(err) {
+    if (err) {
+      console.error('Error al actualizar empleado:', err);
+      return res.status(500).json({ error: 'Error al actualizar el empleado' });
+    }
+    res.json({ mensaje: 'Empleado actualizado correctamente' });
   });
 });
-
-
-
-// Puedes agregar PUT, DELETE, etc.
 
 module.exports = router;

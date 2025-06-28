@@ -3,10 +3,10 @@ const API_URL = 'http://localhost:3000/api/empleados';
 document.addEventListener('DOMContentLoaded', () => {
   cargarEmpleados();
 
-  // Evento guardar empleado
+  // Guardar empleado
   document.getElementById('form-empleado').addEventListener('submit', guardarEmpleado);
 
-  // Evento para abrir modal
+  // Abrir modal para nuevo empleado
   document.querySelector('.btn-nuevo').addEventListener('click', () => {
     document.getElementById('form-empleado').reset();
     document.getElementById('form-empleado').removeAttribute('data-id');
@@ -51,8 +51,33 @@ function cargarEmpleados() {
       });
 
       agregarEventosBotones();
+      agregarEventoFila(); // <-- para activar el alert al hacer clic en fila
     })
     .catch(err => console.error('Error al cargar empleados:', err));
+}
+
+function agregarEventoFila() {
+  const filas = document.querySelectorAll('#tabla-empleados-body tr');
+  filas.forEach(fila => {
+    fila.addEventListener('click', function (e) {
+      // Evita que el clic en el botón de editar/eliminar dispare el alert
+      if (e.target.tagName === 'BUTTON') return;
+
+      const celdas = this.querySelectorAll('td');
+      const campos = [
+        "Código", "Nombre", "Posición", "Fecha de Ingreso", "Cédula",
+        "Fecha de Nacimiento", "Último Aumento", "Salario",
+        "Gastos", "Total", "Comentarios", "Email"
+      ];
+
+      let mensaje = "📋 Datos del Empleado:\n\n";
+      campos.forEach((campo, i) => {
+        mensaje += `${campo}: ${celdas[i].textContent.trim()}\n`;
+      });
+
+      alert(mensaje);
+    });
+  });
 }
 
 function guardarEmpleado(e) {

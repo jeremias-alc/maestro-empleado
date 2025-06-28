@@ -4,26 +4,26 @@ const cors = require('cors');
 const empleadosRouter = require('./routes/empleados');
 
 const app = express();
-app.use(cors()); // Habilitar CORS para todas las rutas
 const PORT = process.env.PORT || 3000;
 
-// Middleware para parsear JSON
-app.use(express.json());
+// 1. Middleware
+app.use(cors()); // Permitir solicitudes desde cualquier origen
+app.use(express.json()); // Permitir JSON en el cuerpo de la petición
 
-// Rutas de la API para empleados
+// 2. Rutas API
 app.use('/api/empleados', empleadosRouter);
 
-// Servir archivos estáticos (JS, CSS, imágenes, etc.)
+// 3. Archivos estáticos (js, css, assets)
 app.use('/js', express.static(path.join(__dirname, 'js')));
 app.use('/css', express.static(path.join(__dirname, 'css')));
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
-// Ruta principal que devuelve el archivo empleados.html
+// 4. Página principal
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'empleados.html'));
 });
 
-// Arrancar el servidor
+// 5. Iniciar servidor
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
