@@ -1,17 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <link rel="stylesheet" href="css/estilos.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/login.css">
+  <img src="assets/XpertCodelogo.png" alt="Logo" />
+  <title>Iniciar Sesión</title>
 </head>
 <body>
-  <nav class="nav-links">
-      <a href="empleados.html" class="nav-link">Empleados</a>
-      <a href="vacaciones.html" class="nav-link">Vacaciones</a>
-      <a href="historial.html" class="nav-link">Historial</a>
-    </nav>
-    
+  <div class="login-container">
+    <h2>Iniciar Sesión</h2>
+    <form id="loginForm">
+      <label for="username">Usuario</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="password">Contraseña</label>
+      <input type="password" id="password" name="password" required>
+
+      <button type="submit">Iniciar Sesion</button>
+    </form>
+    <p id="error"></p>
+  </div>
+
+  <script src="js/login.js"></script>
 </body>
 </html>
