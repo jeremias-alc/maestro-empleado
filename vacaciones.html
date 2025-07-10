@@ -43,6 +43,45 @@
           </div>
         </div>
 
+        <!-- MODAL PARA NUEVO REGISTRO -->
+        <div class="modal" id="modalVacaciones">
+          <div class="modal-contenido">
+            <h2>Registrar Vacaciones</h2>
+            <form id="formVacaciones">
+              <label>Empleado:
+                <select name="id_empleado" id="id_empleado" required></select>
+              </label>
+              <label>Periodo Vacacional:
+                <input type="text" name="año_vacaciones" required>
+              </label>
+              <label>Fecha Inicio:
+                <input type="date" name="fecha_inicio" required>
+              </label>
+              <label>Fecha Fin:
+                <input type="date" name="fecha_fin" required>
+              </label>
+              <label>Total días:
+                <input type="number" name="total_dias" required>
+              </label>
+              <label>Tipo:
+                <select name="tipo" required>
+                  <option value="Tomada">Tomada</option>
+                  <option value="Pagada">Pagada</option>
+                </select>
+              </label>
+              <label>Comentarios:
+                <textarea name="comentarios" rows="2"></textarea>
+              </label>
+
+              <div class="botones-modal">
+                <button type="submit">Guardar</button>
+                <button type="button" id="cancelarModal">Cancelar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+
         <!-- Contenedor con scroll para la tabla -->
         <div class="tabla-scroll">
           <table>
@@ -70,6 +109,6 @@
     </section>
   </main>
   <script src="js/main.js"></script>
-
+  <script src="js/vacaciones.js"></script>
 </body>
 </html>

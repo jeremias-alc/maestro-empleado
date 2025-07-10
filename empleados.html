@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Maestro de Empleados</title>
   <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/empleados.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 </head>
@@ -60,6 +61,7 @@
                   <th>Total</th>
                   <th>Comentarios</th>
                   <th>Email</th>
+                  <th>Acciones</th>
                 </tr>
               </thead>
               <tbody id="tabla-empleados-body">
@@ -71,31 +73,33 @@
     </section>
   </main>
   <script src="js/main.js"></script>
+  <script src="js/empleados.js"></script>
 
-  <!-- MODAL NUEVO EMPLEADO -->
-  <div class="modal" id="modal-empleado">
+  <!-- Modal de nuevo empleado -->
+  <div id="modalEmpleado" class="modal" style="display:none;">
     <div class="modal-contenido">
       <h2>Nuevo Empleado</h2>
-      <form id="form-empleado">
+      <form id="formEmpleado">
         <input type="text" name="codigo" placeholder="Código" required />
         <input type="text" name="nombre" placeholder="Nombre" required />
-        <input type="text" name="posicion" placeholder="Posición" />
-        <input type="date" name="fecha_ingreso" placeholder="Fecha Ingreso" />
-        <input type="text" name="cedula" placeholder="Cédula" />
-        <input type="date" name="fecha_cumpleanos" placeholder="Fecha Nacimiento" />
+        <input type="text" name="posicion" placeholder="Posición" required />
+        <input type="date" name="fecha_ingreso" placeholder="Fecha de Ingreso" required />
+        <input type="text" name="cedula" placeholder="Cédula" required />
+        <input type="date" name="fecha_cumpleanos" placeholder="Fecha de Cumpleaños" required />
         <input type="date" name="fecha_ultimo_aumento" placeholder="Último Aumento" />
-        <input type="number" step="0.01" name="salario" placeholder="Salario" />
-        <input type="number" step="0.01" name="expenses" placeholder="Expenses" />
-        <input type="number" step="0.01" name="total" placeholder="Total" />
+        <input type="number" name="salario" placeholder="Salario" required />
+        <input type="number" name="expenses" placeholder="Gastos" required />
+        <input type="number" name="total" placeholder="Total" required />
         <input type="text" name="comentarios" placeholder="Comentarios" />
         <input type="email" name="email" placeholder="Email" />
-        <div class="acciones-formulario">
+        <div class="modal-botones">
           <button type="submit">Guardar</button>
-          <button type="button" id="cerrar-modal">Cancelar</button>
+          <button type="button" id="cancelarEmpleado">Cancelar</button>
         </div>
       </form>
     </div>
   </div>
+
 
 
 </body>
