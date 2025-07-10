@@ -34,13 +34,6 @@
     <section class="contenido">
           <div class="acciones-superiores">
             <button class="btn-nuevo">+ Nuevo Usuario</button>
-            <div class="acciones-individuales">
-              <button class="accion">Ver</button>
-              <div class="divider"></div>
-              <button class="accion">Editar</button>
-              <div class="divider"></div>
-              <button class="accion eliminar">Eliminar</button>
-            </div>
           </div>
 
           <!-- Contenedor de la tabla -->
@@ -60,6 +53,7 @@
                   <th>Total</th>
                   <th>Comentarios</th>
                   <th>Email</th>
+                  <th>Acciones</th>
                 </tr>
               </thead>
               <tbody id="tabla-empleados-body">
@@ -70,7 +64,6 @@
 
     </section>
   </main>
-  <script src="js/main.js"></script>
 
   <!-- MODAL NUEVO EMPLEADO -->
   <div class="modal" id="modal-empleado">
@@ -82,7 +75,7 @@
         <input type="text" name="posicion" placeholder="Posición" />
         <input type="date" name="fecha_ingreso" placeholder="Fecha Ingreso" />
         <input type="text" name="cedula" placeholder="Cédula" />
-        <input type="date" name="fecha_cumpleanos" placeholder="Fecha Nacimiento" />
+        <input type="date" name="fecha_nacimiento" placeholder="Fecha Nacimiento" />
         <input type="date" name="fecha_ultimo_aumento" placeholder="Último Aumento" />
         <input type="number" step="0.01" name="salario" placeholder="Salario" />
         <input type="number" step="0.01" name="expenses" placeholder="Expenses" />
@@ -96,7 +89,7 @@
       </form>
     </div>
   </div>
-
+<script src="js/main.js"></script>
 
 </body>
 </html>
