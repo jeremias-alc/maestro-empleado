@@ -32,45 +32,72 @@
     </header>
 
     <section class="contenido">
-        <!-- Botones de acción superiores -->
-        <div class="acciones-superiores">
-          <button class="btn-nuevo">+ Nuevo Registro</button>
-          <div class="acciones-individuales">
-            <button class="accion">Ver</button>
-            <div class="divider"></div>
-            <button class="accion">Editar</button>
-            <div class="divider"></div>
-            <button class="accion eliminar">Eliminar</button>
-          </div>
-        </div>
+      <!-- Botones de acción superiores -->
+      <div class="acciones-superiores">
+        <button class="btn-nuevo">+ Nuevo Registro</button>
+      </div>
 
-        <!-- Contenedor con scroll para la tabla -->
-        <div class="tabla-scroll">
-          <table>
-            <thead>
-              <tr>
-                <th rowspan="2">CNT</th>
-                <th rowspan="2">Nombre Empleado</th>
-                <th rowspan="2">Periodo Vacacional</th>
-                <th colspan="2">Rango Fechas Vacaciones</th>
-                <th rowspan="2"># de días disfrutados</th>
-                <th rowspan="2">Tomada / Pagada</th>
-                <th rowspan="2">Comentarios</th>
-              </tr>
-              <tr>
-                <th>Inicio</th>
-                <th>Fin</th>
-              </tr>
-            </thead>
-            <tbody id="tabla-vacaciones-body">
-              <!-- Registros serán insertados aquí por JS -->
-            </tbody>
-          </table>
-        </div>
-
+      <!-- Contenedor con scroll para la tabla -->
+      <div class="tabla-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th rowspan="2">CNT</th>
+              <th rowspan="2">Nombre Empleado</th>
+              <th rowspan="2">Periodo Vacacional</th>
+              <th colspan="2">Rango Fechas Vacaciones</th>
+              <th rowspan="2"># de días disfrutados</th>
+              <th rowspan="2">Tomada / Pagada</th>
+              <th rowspan="2">Comentarios</th>
+            </tr>
+            <tr>
+              <th>Inicio</th>
+              <th>Fin</th>
+            </tr>
+          </thead>
+          <tbody id="tabla-vacaciones-body">
+            <!-- Registros serán insertados aquí por JS -->
+          </tbody>
+        </table>
+      </div>
     </section>
   </main>
-  <script src="js/main.js"></script>
+
+  <!-- MODAL VACACIÓN -->
+  <div class="modal" id="modal-vacacion" style="display: none;">
+    <div class="modal-contenido">
+      <h2>Registrar Vacación</h2>
+      <form id="form-vacacion">
+        <select name="empleado_id" required>
+          <option value="">Seleccionar Empleado</option>
+        </select>
+        <input type="text" name="periodo" placeholder="Periodo Vacacional (ej. 2025)" required />
+        
+        <label>Fecha Inicio:</label>
+        <input type="date" name="fecha_inicio" required />
+        
+        <label>Fecha Fin:</label>
+        <input type="date" name="fecha_fin" required />
+        
+        <input type="number" name="dias_disfrutados" placeholder="Días Disfrutados" />
+        
+        <select name="tipo" required>
+          <option value="Tomada">Tomada</option>
+          <option value="Pagada">Pagada</option>
+        </select>
+        
+        <textarea name="comentarios" placeholder="Comentarios..."></textarea>
+        
+        <div class="acciones-formulario">
+          <button type="submit">Guardar</button>
+          <button type="button" id="cerrar-modal-vacacion">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script src="js/vacaciones.js"></script>
 
 </body>
 </html>
