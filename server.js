@@ -23,6 +23,8 @@ app.use('/api/auth', authRouter); // Ruta para autenticación
 app.use('/js', express.static(path.join(__dirname, 'js')));
 app.use('/css', express.static(path.join(__dirname, 'css')));
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
+// Servir todos los archivos HTML directamente
+app.use(express.static(__dirname));
 
 // 4. Páginas principales
 app.get('/', (req, res) => {

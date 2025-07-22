@@ -167,7 +167,7 @@ button.delete {
 /* Botón "Nuevo Usuario" */
 .btn-nuevo {
   background-color: #FFFFFF;
-  border: 1px solid #888888;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   color: #888888;
   padding: 8px 16px;
   border-radius: 6px;
@@ -181,8 +181,9 @@ button.delete {
 }
 
 .btn-edit {
-  background-color: #F29422; /* Amarillo */
-  color: white;
+  background-color: #FFFFFF; /* Amarillo */
+  color: #888888;    
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   border: none;
   padding: 6px 12px;
   border-radius: 6px;
@@ -198,8 +199,9 @@ button.delete {
 
 /* Botón Eliminar */
 .btn-delete {
-  background-color: crimson; /* Puedes usar #d9534f si prefieres un rojo más suave */
-  color: white;
+  background-color: #FFFFFF; /* Amarillo */
+  color: #888888;    
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   border: none;
   padding: 6px 12px;
   border-radius: 6px;
@@ -255,7 +257,7 @@ button.delete {
   margin-top: 30px;
   overflow-x: auto;
   overflow-y: auto;
-  max-height: 400px; /* ajusta según necesidad */
+  max-height: 700px; /* ajusta según necesidad */
 }
 
 table {
