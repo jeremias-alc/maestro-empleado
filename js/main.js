@@ -27,6 +27,14 @@ document.getElementById('cerrar-modal-filtros').addEventListener('click', functi
   document.getElementById('modal-filtros').style.display = 'none';
 });
 
+document.getElementById('quitar-filtros').addEventListener('click', () => {
+  // Limpia el formulario de filtros si lo deseas
+  document.getElementById('form-filtro-empleado')?.reset();
+
+  // Cargar todos los empleados
+  cargarEmpleados(); // o la función que use tu tabla por defecto
+});
+
 function cargarEmpleados() {
   fetch(API_URL)
     .then(res => res.json())
