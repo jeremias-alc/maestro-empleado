@@ -176,13 +176,26 @@ button.delete {
   transition: 0.2s ease;
 }
 
+.btn-filtro {
+  background-color: #FFFFFF; /* Amarillo */
+  color: #888888;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 5px;
+}
+
 .btn-nuevo:hover {
   background-color: #f0f0f0;
 }
 
 .btn-edit {
   background-color: #FFFFFF; /* Amarillo */
-  color: #888888;    
+  color: #2c2a2a;    
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   border: none;
   padding: 6px 12px;
@@ -195,13 +208,15 @@ button.delete {
 
 .btn-edit:hover {
   background-color: #d37f1c; /* tono más oscuro al pasar el mouse */
+  color: #2c2a2a;    
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* Botón Eliminar */
 .btn-delete {
   background-color: #FFFFFF; /* Amarillo */
-  color: #888888;    
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  color: #2c2a2a;    
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   border: none;
   padding: 6px 12px;
   border-radius: 6px;
@@ -211,7 +226,9 @@ button.delete {
 }
 
 .btn-delete:hover {
-  background-color: darkred;
+  background-color: rgb(202, 12, 12);
+  color: #2c2a2a;    
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 #tabla-empleados-body tr {
@@ -338,4 +355,43 @@ tbody tr:hover {
 
 .acciones-formulario button#cerrar-modal {
   background-color: #888;
+}
+
+/* Estilo general del modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Habilita scroll si es necesario */
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Contenido del modal */
+.modal-contenido {
+  background-color: #fff;
+  margin: 40px auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh; /* Limita el alto del contenido */
+  overflow-y: auto; /* Scroll vertical dentro del contenido si se desborda */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Espaciado entre formularios dentro del modal */
+.modal-contenido form {
+  margin-bottom: 20px;
+}
+
+/* Ajustes responsivos */
+@media (max-height: 600px) {
+  .modal-contenido {
+    margin: 20px auto;
+    max-height: 80vh;
+  }
 }

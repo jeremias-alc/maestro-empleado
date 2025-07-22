@@ -19,6 +19,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+document.getElementById('btn-filtrar-empleados').addEventListener('click', function () {
+  document.getElementById('modal-filtros').style.display = 'block';
+});
+
+document.getElementById('cerrar-modal-filtros').addEventListener('click', function () {
+  document.getElementById('modal-filtros').style.display = 'none';
+});
+
 function cargarEmpleados() {
   fetch(API_URL)
     .then(res => res.json())

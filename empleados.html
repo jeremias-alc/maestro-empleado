@@ -1,162 +1,184 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Maestro de Empleados</title>
-  <link rel="stylesheet" href="css/estilos.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Maestro de Empleados</title>
+    <link rel="stylesheet" href="css/estilos.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;600&family=Quicksand:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
+    <!-- NAVBAR LATERAL -->
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="assets/XpertCodelogo.png" alt="Logo" />
+        <h2>Gestión</h2>
+      </div>
+      <nav class="nav-links">
+        <a href="empleados.html" class="nav-link">Empleados</a>
+        <a href="vacaciones.html" class="nav-link">Vacaciones</a>
+        <a href="historial.html" class="nav-link">Historial</a>
+        <a href="index.html" class="nav-link">Cerrar Sesion</a>
+      </nav>
+    </aside>
 
-  <!-- NAVBAR LATERAL -->
-  <aside class="sidebar">
-    <div class="logo">
-      <img src="assets/XpertCodelogo.png" alt="Logo" />
-      <h2>Gestión</h2>
-    </div>
-    <nav class="nav-links">
-      <a href="empleados.html" class="nav-link">Empleados</a>
-      <a href="vacaciones.html" class="nav-link">Vacaciones</a>
-      <a href="historial.html" class="nav-link">Historial</a>
-      <a href="index.html" class="nav-link">Cerrar Sesion</a>
-    </nav>
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-content">
+      <header class="page-header">
+        <h1>Empleados</h1>
+      </header>
 
-  </aside>
-
-  <!-- CONTENIDO PRINCIPAL -->
-  <main class="main-content">
-    <header class="page-header">
-      <h1>Empleados</h1>
-    </header>
-
-    <section class="contenido">
-          <div class="acciones-superiores">
-            <button class="btn-nuevo">+ Nuevo Usuario</button>
-          </div>
-
-          <!-- FORMULARIO DE BÚSQUEDA -->
-          <form id="busqueda-form" class="form-busqueda">
-            <input type="text" name="nombre" placeholder="Buscar por nombre" />
-            <input type="text" name="cedula" placeholder="Buscar por cédula" />
-            <input type="text" name="email" placeholder="Buscar por email" />
-            <button type="submit">Buscar</button>
-          </form>
-
-          <!-- FORMULARIO DE FILTRO POR SALARIO -->
-          <form id="salario-form" class="form-busqueda">
-            <select name="operador">
-              <option value=">">Mayor que</option>
-              <option value="<">Menor que</option>
-              <option value=">=">Mayor o igual</option>
-              <option value="<=">Menor o igual</option>
-              <option value="=">Igual</option>
-            </select>
-            <input type="number" name="monto" placeholder="Monto (RD$)" step="0.01" required />
-            <button type="submit">Filtrar por salario</button>
-          </form>
-
-          <!-- FORMULARIO DE FILTRO POR FECHA DE INGRESO -->
-          <form id="fecha-form" class="form-busqueda">
-            <label>Desde:</label>
-            <input type="date" name="desde" required />
-            <label>Hasta:</label>
-            <input type="date" name="hasta" required />
-            <button type="submit">Filtrar por fecha de ingreso</button>
-          </form>
-
-          <!-- FORMULARIO DE FILTRO POR CUMPLEAÑOS -->
-          <form id="cumple-form" class="form-busqueda">
-            <label>Mes:</label>
-            <input type="number" name="mes" min="1" max="12" required />
-            <label>Día (opcional):</label>
-            <input type="number" name="dia" min="1" max="31" />
-            <button type="submit">Filtrar por cumpleaños</button>
-          </form>
-
-          <input type="text" id="buscar-posicion" placeholder="Buscar por posición">
-          <button id="btn-buscar-posicion">Buscar posición</button>
-
-          <!-- formulario fecha ingresa -->
-          <label>Desde ingreso:</label>
-          <input type="date" id="filtro-desde-ingreso">
-          <label>Hasta ingreso:</label>
-          <input type="date" id="filtro-hasta-ingreso">
-          <button id="btn-filtrar-ingreso">Filtrar ingreso</button>
-
-          <!-- 🔍 Filtro: Cumpleaños por mes y/o día -->
-          <label>Mes:</label>
-          <input type="number" min="1" max="12" id="filtro-cumple-mes" placeholder="Mes">
-          <label>Día:</label>
-          <input type="number" min="1" max="31" id="filtro-cumple-dia" placeholder="Día">
-          <button id="btn-filtrar-cumple">Buscar cumpleaños</button>
-
-
-          <!-- ESTADÍSTICAS -->
-          <section class="estadisticas" style="margin-top: 1.5rem;">
-            <h2>📊 Estadísticas de Empleados</h2>
-            <div id="estadisticas-contenido">
-              <!-- Se llenará por JS -->
-            </div>
-            <button onclick="cargarEstadisticas()">Actualizar estadísticas</button>
-          </section>
-
-
-          <!-- Contenedor de la tabla -->
-          <div class="tabla-scroll">
-            <table>
-              <thead>
-                <tr>
-                  <th>Código</th>
-                  <th>Nombre</th>
-                  <th>Posición</th>
-                  <th>Fecha Ingreso</th>
-                  <th>Cédula</th>
-                  <th>Fecha Nacimiento</th>
-                  <th>Último Aumento</th>
-                  <th>Salario</th>
-                  <th>Expenses</th>
-                  <th>Total</th>
-                  <th>Comentarios</th>
-                  <th>Email</th>
-                  <th>Acciones</th>
-                </tr>
-              </thead>
-              <tbody id="tabla-empleados-body">
-                <!-- Empleados serán insertados aquí por JS -->
-              </tbody>
-            </table>
-          </div>
-
-    </section>
-  </main>
-
-  <!-- MODAL NUEVO EMPLEADO -->
-  <div class="modal" id="modal-empleado">
-    <div class="modal-contenido">
-      <h2>Nuevo Empleado</h2>
-      <form id="form-empleado">
-        <input type="text" name="codigo" placeholder="Código" required />
-        <input type="text" name="nombre" placeholder="Nombre" required />
-        <input type="text" name="posicion" placeholder="Posición" />
-        <input type="date" name="fecha_ingreso" placeholder="Fecha Ingreso" />
-        <input type="text" name="cedula" placeholder="Cédula" />
-        <input type="date" name="fecha_nacimiento" placeholder="Fecha Nacimiento" />
-        <input type="date" name="fecha_ultimo_aumento" placeholder="Último Aumento" />
-        <input type="number" step="0.01" name="salario" placeholder="Salario" />
-        <input type="number" step="0.01" name="expenses" placeholder="Expenses" />
-        <input type="number" step="0.01" name="total" placeholder="Total" />
-        <input type="text" name="comentarios" placeholder="Comentarios" />
-        <input type="email" name="email" placeholder="Email" />
-        <div class="acciones-formulario">
-          <button type="submit">Guardar</button>
-          <button type="button" id="cerrar-modal">Cancelar</button>
+      <section class="contenido">
+        <div class="acciones-superiores">
+          <button class="btn-nuevo">+ Nuevo Usuario</button>
         </div>
-      </form>
+
+        <!-- Botón para mostrar/ocultar filtros -->
+        <div><button id="btn-filtrar-empleados" class="btn-filtro">🔍 Filtrar</button></div>
+
+        <div class="modal" id="modal-filtros">
+  <div class="modal-contenido">
+    <h2>Filtrar Empleados</h2>
+
+    <!-- FORMULARIO DE BÚSQUEDA -->
+    <form id="busqueda-form" class="form-busqueda">
+      <input type="text" name="nombre" placeholder="Buscar por nombre" />
+      <input type="text" name="cedula" placeholder="Buscar por cédula" />
+      <input type="text" name="email" placeholder="Buscar por email" />
+      <button type="submit">Buscar</button>
+    </form>
+
+    <!-- FORMULARIO DE FILTRO POR SALARIO -->
+    <form id="salario-form" class="form-busqueda">
+      <select name="operador">
+        <option value=">">Mayor que</option>
+        <option value="<">Menor que</option>
+        <option value=">=">Mayor o igual</option>
+        <option value="<=">Menor o igual</option>
+        <option value="=">Igual</option>
+      </select>
+      <input type="number" name="monto" placeholder="Monto (RD$)" step="0.01" required />
+      <button type="submit">Filtrar por salario</button>
+    </form>
+
+    <!-- FORMULARIO DE FILTRO POR FECHA DE INGRESO -->
+    <form id="fecha-form" class="form-busqueda">
+      <label>Desde:</label>
+      <input type="date" name="desde" required />
+      <label>Hasta:</label>
+      <input type="date" name="hasta" required />
+      <button type="submit">Filtrar por fecha de ingreso</button>
+    </form>
+
+    <!-- FORMULARIO DE FILTRO POR CUMPLEAÑOS -->
+    <form id="cumple-form" class="form-busqueda">
+      <label>Mes:</label>
+      <input type="number" name="mes" min="1" max="12" required />
+      <label>Día (opcional):</label>
+      <input type="number" name="dia" min="1" max="31" />
+      <button type="submit">Filtrar por cumpleaños</button>
+    </form>
+
+    <!-- FORMULARIO DE FILTRO POR POSICIÓN -->
+    <form id="posicion-form" class="form-busqueda">
+      <input type="text" name="posicion" placeholder="Buscar por posición" />
+      <button type="submit">Buscar posición</button>
+    </form>
+
+    <div class="acciones-formulario">
+      <button type="button" id="cerrar-modal-filtros">Cerrar</button>
     </div>
   </div>
-<script src="js/main.js"></script>
+</div>
 
-</body>
+        <!-- ESTADÍSTICAS -->
+        <section class="estadisticas" style="margin-top: 1.5rem">
+          <h2>📊 Estadísticas de Empleados</h2>
+          <div id="estadisticas-contenido">
+            <!-- Se llenará por JS -->
+          </div>
+          <button onclick="cargarEstadisticas()">
+            Actualizar estadísticas
+          </button>
+        </section>
+
+        <!-- Contenedor de la tabla -->
+        <div class="tabla-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Posición</th>
+                <th>Fecha Ingreso</th>
+                <th>Cédula</th>
+                <th>Fecha Nacimiento</th>
+                <th>Último Aumento</th>
+                <th>Salario</th>
+                <th>Expenses</th>
+                <th>Total</th>
+                <th>Comentarios</th>
+                <th>Email</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="tabla-empleados-body">
+              <!-- Empleados serán insertados aquí por JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <!-- MODAL NUEVO EMPLEADO -->
+    <div class="modal" id="modal-empleado">
+      <div class="modal-contenido">
+        <h2>Nuevo Empleado</h2>
+        <form id="form-empleado">
+          <input type="text" name="codigo" placeholder="Código" required />
+          <input type="text" name="nombre" placeholder="Nombre" required />
+          <input type="text" name="posicion" placeholder="Posición" />
+          <input type="date" name="fecha_ingreso" placeholder="Fecha Ingreso" />
+          <input type="text" name="cedula" placeholder="Cédula" />
+          <input
+            type="date"
+            name="fecha_nacimiento"
+            placeholder="Fecha Nacimiento"
+          />
+          <input
+            type="date"
+            name="fecha_ultimo_aumento"
+            placeholder="Último Aumento"
+          />
+          <input
+            type="number"
+            step="0.01"
+            name="salario"
+            placeholder="Salario"
+          />
+          <input
+            type="number"
+            step="0.01"
+            name="expenses"
+            placeholder="Expenses"
+          />
+          <input type="number" step="0.01" name="total" placeholder="Total" />
+          <input type="text" name="comentarios" placeholder="Comentarios" />
+          <input type="email" name="email" placeholder="Email" />
+          <div class="acciones-formulario">
+            <button type="submit">Guardar</button>
+            <button type="button" id="cerrar-modal">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="js/main.js"></script>
+  </body>
 </html>
